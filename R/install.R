@@ -9,6 +9,7 @@
 #' @return a python module cirq
 #' @importFrom reticulate py_config py_install use_python
 #' @importFrom crayon red black
+#' @importFrom magrittr %>%
 #' @export
 install_cirq <- function(version = NULL, ..., restart_session = TRUE, from_git = FALSE) {
 
