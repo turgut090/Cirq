@@ -1,7 +1,7 @@
 Package: cirq
 Type: Package
 Title: Interface to 'Cirq' 
-Version: 0.1.0.2
+Version: 0.8.0
 Authors@R: c(
   person("Turgut", "Abdullayev", role = c("aut", "cre"),
          email = "turqut.a.314@gmail.com")
