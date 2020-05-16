@@ -6,8 +6,27 @@ Cirq is a Python library for writing, manipulating, and optimizing quantum circu
 
 > [TensorFlow](https://www.tensorflow.org/quantum/concepts): Quantum computing relies on properties of quantum mechanics to compute problems that would be out of reach for classical computers. A quantum computer uses qubits. Qubits are like regular bits in a computer, but with the added ability to be put into a superposition and share entanglement with one another.
 
+## Installation
 
-## Usage: basics
+Requirements:
+
+- Python 3.6
+- TensorFlow 2.x
+
+The dev version (experimental):
+
+```
+devtools::install_github('henry090/tfaddons')
+```
+
+Later, you need to install the python module *cirq*:
+
+```
+cirq::install_cirq()
+```
+
+
+## Usage: the basics
 
 Using named qubits can be useful for abstract algorithmss well as algorithms not yet mapped onto hardware.
 ```
@@ -15,7 +34,7 @@ q0 = qubit_named('source')
 q1 = qubit_named('target')
 ```
 
-Line qubits can be created individually
+Line qubits can be created individually.
 ```
 q3 = qubit_line(3)
 ```
@@ -30,7 +49,7 @@ Grid Qubits can also be referenced individually
 q4_5 = qubit_grid(4,5)
 ```
 
-Or created in bulk in a square. This will create 16 qubits from (0,0) to (3,3)
+Or created in bulk in a square. This will create 16 qubits from `(0,0)` to `(3,3)`.
 ```
 qubits = qubit_grid_square(4)
 ```
