@@ -22,7 +22,8 @@ Imports:
     tensorflow,
     rstudioapi,
     crayon,
-    keras
+    keras,
+    magrittr
 Suggests:
     knitr,
     testthat
