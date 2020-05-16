@@ -16,7 +16,7 @@ Requirements:
 The dev version (experimental):
 
 ```
-devtools::install_github('henry090/tfaddons')
+devtools::install_github('henry090/Cirq')
 ```
 
 Later, you need to install the python module *cirq*:
