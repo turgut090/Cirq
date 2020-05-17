@@ -152,4 +152,3 @@ qubit_num <- function(val, default) {
 
 
 
-
