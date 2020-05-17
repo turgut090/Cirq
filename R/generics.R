@@ -12,12 +12,30 @@
   cat(x$`__repr__`())
 }
 
+#' @title LineQubit
+#' @method print cirq.devices.line_qubit.LineQubit
+#' @param x an object used to select a method.
+#' @param ... further arguments passed to or from other methods.
+#' @export
+"print.cirq.devices.line_qubit.LineQubit" <- function(x, ...) {
+  cat(x$`__repr__`())
+}
+
 #' @title PauliSum
 #' @method print cirq.ops.linear_combinations.PauliSum
 #' @param x an object used to select a method.
 #' @param ... further arguments passed to or from other methods.
 #' @export
 "print.cirq.ops.linear_combinations.PauliSum" <- function(x,...) {
+  cat(x$`__repr__`())
+}
+
+#' @title _PauliZ
+#' @method print cirq.ops.pauli_gates._PauliZ
+#' @param x an object used to select a method.
+#' @param ... further arguments passed to or from other methods.
+#' @export
+"print.cirq.ops.pauli_gates._PauliZ" <- function(x,...) {
   cat(x$`__repr__`())
 }
 
@@ -45,6 +63,15 @@
 #' @param ... further arguments passed to or from other methods.
 #' @export
 "print.cirq.ops.common_gates.XPowGate" <- function(x,...) {
+  cat(x$`__repr__`())
+}
+
+#' @title CXPowGate
+#' @method print cirq.ops.common_gates.CXPowGate
+#' @param x an object used to select a method.
+#' @param ... further arguments passed to or from other methods.
+#' @export
+"print.cirq.ops.common_gates.CXPowGate" <- function(x,...) {
   cat(x$`__repr__`())
 }
 
