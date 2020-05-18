@@ -10,8 +10,7 @@ gate_ccnot_pow(...)
 \item{...}{parameters to pass}
 }
 \value{
-class: a CCNotPowGate gate.
-Alias of cirq.ops.three_qubit_gates.CCXPowGate
+None
 }
 \description{
 CCNotPowGate
@@ -19,11 +18,19 @@ CCNotPowGate
 \seealso{
 Other Unitary gates and operations: 
 \code{\link{gate_ccnot}()},
+\code{\link{gate_ccx_pow}()},
 \code{\link{gate_ccx}()},
+\code{\link{gate_ccz_pow}()},
 \code{\link{gate_ccz}()},
+\code{\link{gate_cnot_pow}()},
 \code{\link{gate_cnot}()},
+\code{\link{gate_controlled}()},
+\code{\link{gate_cs_wap}()},
+\code{\link{gate_cx_pow}()},
 \code{\link{gate_cx}()},
+\code{\link{gate_cz_pow}()},
 \code{\link{gate_cz}()},
+\code{\link{gate_eigen}()},
 \code{\link{gate_fredkin}()},
 \code{\link{gate_givens}()},
 \code{\link{gate_h}()},
