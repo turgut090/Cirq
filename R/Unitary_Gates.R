@@ -490,8 +490,7 @@ gate_riswap <- function(rads) {
 #' @family Unitary gates and operations
 #'
 #' @param ... parameters to pass
-#' @return class: a CCNotPowGate gate.
-#' Alias of cirq.ops.three_qubit_gates.CCXPowGate
+#' @return None
 #' @export
 gate_ccnot_pow <- function(...) {
   args = list(...)
@@ -502,7 +501,152 @@ gate_ccnot_pow <- function(...) {
     do.call(cirq$CCNotPowGate, args)
 }
 
+#' @title CCXPowGate
+#' @family Unitary gates and operations
+#' @description A Toffoli (doubly-controlled-NOT) that can be
+#' raised to a power.
+#' The matrix of `CCX**t` is an 8x8 identity except the bottom
+#' right 2x2 area is the matrix of `X**t`.
+#' @param ... parameters to pass
+#' @return None
+#' @export
+gate_ccx_pow <- function(...) {
+  args = list(...)
+
+  if (length(args) == 0)
+    cirq$CCXPowGate
+  else
+    do.call(cirq$CCXPowGate, args)
+}
+
+
+#' @title CCZPowGate
+#' @family Unitary gates and operations
+#' @description A doubly-controlled-Z that can be raised to a power.
+#' The matrix of `CCZ**t` is `diag(1, 1, 1, 1, 1, 1, 1, exp(i pi t))`.
+#' @param ... parameters to pass
+#' @return None
+#' @export
+gate_ccz_pow <- function(...) {
+  args = list(...)
+
+  if (length(args) == 0)
+    cirq$CCZPowGate
+  else
+    do.call(cirq$CCZPowGate, args)
+}
 
 
 
+#' @title CNotPowGate
+#' @family Unitary gates and operations
+#' @param ... parameters to pass
+#' @return None
+#' @export
+gate_cnot_pow <- function(...) {
+  args = list(...)
+
+  if (length(args) == 0)
+    cirq$CNotPowGate
+  else
+    do.call(cirq$CNotPowGate, args)
+}
+
+
+#' @title CSwapGate
+#' @family Unitary gates and operations
+#' @description A controlled swap gate. The Fredkin gate.
+#' @param ... parameters to pass
+#' @return None
+#' @export
+gate_cs_wap <- function(...) {
+  args = list(...)
+
+  if (length(args) == 0)
+    cirq$CSwapGate
+  else
+    do.call(cirq$CSwapGate, args)
+}
+
+
+#' @title CXPowGate
+#' @family Unitary gates and operations
+#' @description A gate that applies a controlled power of an X gate.
+#' @details When applying CNOT (controlled-not) to qubits, you can either use
+#' positional arguments `CNOT(q1, q2)`, where q2 is toggled when q1 is on,
+#' or named arguments `CNOT(control=q1, target=q2)`.
+#' (Mixing the two is not permitted.)
+#' @param ... parameters to pass
+#' @return None
+#' @export
+gate_cx_pow <- function(...) {
+  args = list(...)
+
+  if (length(args) == 0)
+    cirq$CXPowGate
+  else
+    do.call(cirq$CXPowGate, args)
+}
+
+
+
+
+#' @title CZPowGate
+#' @family Unitary gates and operations
+#' @description A gate that applies a phase to the |11⟩ state of two qubits.
+#'
+#' @param ... parameters to pass
+#' @return None
+#' @export
+gate_cz_pow <- function(...) {
+  args = list(...)
+
+  if (length(args) == 0)
+    cirq$CZPowGate
+  else
+    do.call(cirq$CZPowGate, args)
+}
+
+
+
+#' @title Controlled Gate
+#' @family Unitary gates and operations
+#' @description Augments existing gates to have one or more
+#' control qubits. This object is typically created via `gate_controlled()`.
+#' @details Initializes the controlled gate. If no arguments are specified
+#' for the controls, defaults to a single qubit control.
+#' @param ... parameters to pass
+#' @return None
+#' @export
+gate_controlled <- function(...) {
+  args = list(...)
+
+  if (length(args) == 0)
+    cirq$ControlledGate
+  else
+    do.call(cirq$ControlledGate, args)
+}
+
+
+
+#' @title Eigen Gate
+#' @family Unitary gates and operations
+#' @description A gate with a known eigendecomposition.
+#' @details EigenGate is particularly useful when one wishes for different parts of
+#' the same eigenspace to be extrapolated differently. For example, if a gate
+#' has a 2-dimensional eigenspace with eigenvalue -1, but one wishes for the
+#' square root of the gate to split this eigenspace into a part with
+#' eigenvalue i and a part with eigenvalue -i, then EigenGate allows this
+#' functionality to be unambiguously specified via the _eigen_components method.
+#' @param ... parameters to pass
+#' @return None
+#' @export
+gate_eigen <- function(...) {
+  args = list(...)
+
+  if (length(args) == 0)
+    cirq$EigenGate
+  else
+    do.call(cirq$EigenGate, args)
+}
 
