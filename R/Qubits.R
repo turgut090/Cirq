@@ -90,7 +90,7 @@ qubit_grid <- function(row, col) {
 
 #' @title Grid Qubits square
 #'
-#' @description Returns a square of GridQubits.
+#' @description a square of GridQubits.
 #'
 #'
 #' @param diameter Length of a side of the square
@@ -143,8 +143,6 @@ qubit_num <- function(val, default) {
   do.call(cirq$num_qubits, args)
 
 }
-
-
 
 
 
