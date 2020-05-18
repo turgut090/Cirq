@@ -17,5 +17,5 @@ qubit_grid_square(diameter, top = 0, left = 0)
 A list of GridQubits filling in a square grid
 }
 \description{
-Returns a square of GridQubits.
+a square of GridQubits.
 }
