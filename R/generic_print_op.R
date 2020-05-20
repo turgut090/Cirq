@@ -113,12 +113,11 @@
 
 #' @title Circuit
 #' @method str cirq.circuits.circuit.Circuit
-#' @param x an object to print
 #' @param object any R object about which you want to have some information.
 #' @param ... further arguments passed to or from other methods.
 #' @export
-"str.cirq.circuits.circuit.Circuit" <- function(object,x, ...) {
-  cat(x$`__str__`())
+"str.cirq.circuits.circuit.Circuit" <- function(object, ...) {
+  cat(object$`__str__`())
 }
 
 
