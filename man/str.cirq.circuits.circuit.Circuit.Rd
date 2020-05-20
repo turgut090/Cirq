@@ -4,12 +4,10 @@
 \alias{str.cirq.circuits.circuit.Circuit}
 \title{Circuit}
 \usage{
-\method{str}{cirq.circuits.circuit.Circuit}(object, x, ...)
+\method{str}{cirq.circuits.circuit.Circuit}(object, ...)
 }
 \arguments{
 \item{object}{any R object about which you want to have some information.}
-
-\item{x}{an object to print}
 
 \item{...}{further arguments passed to or from other methods.}
 }
