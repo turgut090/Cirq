@@ -650,3 +650,278 @@ gate_eigen <- function(...) {
     do.call(cirq$EigenGate, args)
 }
 
+
+#' @title FSimGate
+#' @family Unitary gates and operations
+#' @description Fermionic simulation gate.
+#' @details Contains all two qubit interactions that preserve excitations, up to
+#' single-qubit rotations and global phase.
+#' @param ... parameters to pass
+#' @return None
+#' @export
+gate_fsim <- function(...) {
+  args = list(...)
+
+  if (length(args) == 0)
+    cirq$FSimGate
+  else
+    do.call(cirq$FSimGate, args)
+}
+
+
+#' @title Gate
+#' @family Unitary gates and operations
+#' @description An operation type that can be applied to a collection of qubits.
+#' @details Gates can be applied to qubits by calling their on() method with
+#' the qubits to be applied to supplied, or, alternatively, by simply
+#' calling the gate on the qubits. In other words calling `MyGate.on(q1, q2)`
+#' to create an Operation on q1 and q2 is equivalent to `MyGate(q1,q2)`.
+#' Gates operate on a certain number of qubits. All implementations of gate
+#' must implement the num_qubits method declaring how many qubits they
+#' act on. The gate feature classes SingleQubitGate and TwoQubitGate
+#' can be used to avoid writing this boilerplate.
+#' Linear combinations of gates can be created by adding gates together and
+#' multiplying them by scalars.
+#' @param ... parameters to pass
+#' @return None
+#' @export
+gate_Gate <- function(...) {
+  args = list(...)
+
+  if (length(args) == 0)
+    cirq$Gate
+  else
+    do.call(cirq$Gate, args)
+}
+
+
+#' @title Global Phase Operation
+#' @family Unitary gates and operations
+#' @description An operation type that can be applied to a collection of qubits.
+#' @param ... parameters to pass
+#' @return None
+#' @export
+gate_global_phase_operation <- function(...) {
+  args = list(...)
+
+  if (length(args) == 0)
+    cirq$GlobalPhaseOperation
+  else
+    do.call(cirq$GlobalPhaseOperation, args)
+}
+
+
+#' @title HPow Gate
+#' @family Unitary gates and operations
+#' @description A Gate that performs a rotation around the X+Z axis of the Bloch sphere.
+#' @details The unitary matrix of HPowGate(exponent=t) is:
+#' `[[g·(c-i·s/sqrt(2)), -i·g·s/sqrt(2)],`
+#' `[-i·g·s/sqrt(2)], g·(c+i·s/sqrt(2))]]`
+#' where
+#' c = cos(π·t/2)
+#' s = sin(π·t/2)
+#' g = exp(i·π·t/2).
+#' Note in particular that for t=1, this gives the Hadamard matrix.
+#' gate_h, the Hadamard gate, is an instance of this gate at exponent=1.
+#' @param ... parameters to pass
+#' @return None
+#' @export
+gate_hpow <- function(...) {
+  args = list(...)
+
+  if (length(args) == 0)
+    cirq$HPowGate
+  else
+    do.call(cirq$HPowGate, args)
+}
+
+
+
+
+
+#' @title ISwap Pow Gate
+#' @family Unitary gates and operations
+#' @description Rotates the |01⟩ vs |10⟩ subspace of two qubits around its Bloch X-axis.
+#' @details When exponent=1, swaps the two qubits and phases |01⟩ and |10⟩ by i.
+#' @param ... parameters to pass
+#' @return None
+#' @export
+gate_is_wap_pow <- function(...) {
+  args = list(...)
+
+  if (length(args) == 0)
+    cirq$ISwapPowGate
+  else
+    do.call(cirq$ISwapPowGate, args)
+}
+
+
+
+#' @title Identity Gate
+#' @family Unitary gates and operations
+#' @description A Gate that perform no operation on qubits.
+#' @details The unitary matrix of this gate is a diagonal matrix with all 1s on the
+#' diagonal and all 0s off the diagonal in any basis.
+#' @param ... parameters to pass
+#' @return None
+#' @export
+gate_identity <- function(...) {
+  args = list(...)
+
+  if (length(args) == 0)
+    cirq$IdentityGate
+  else
+    do.call(cirq$IdentityGate, args)
+}
+
+
+
+
+#' @title Matrix Gate
+#' @family Unitary gates and operations
+#' @description A unitary qubit or qudit gate defined entirely by its matrix.
+#' @param ... parameters to pass
+#' @return None
+#' @export
+gate_matrix <- function(...) {
+  args = list(...)
+
+  if (length(args) == 0)
+    cirq$MatrixGate
+  else
+    do.call(cirq$MatrixGate, args)
+}
+
+
+#' @title Operation Gate
+#' @family Unitary gates and operations
+#' @description An effect applied to a collection of qubits.
+#' @param ... parameters to pass
+#' @return None
+#' @export
+gate_operation <- function(...) {
+  args = list(...)
+
+  if (length(args) == 0)
+    cirq$Operation
+  else
+    do.call(cirq$Operation, args)
+}
+
+
+
+
+#' @title Phase Gradient Gate
+#' @family Unitary gates and operations
+#' @description An effect applied to a collection of qubits.
+#' @param ... parameters to pass
+#' @return None
+#' @export
+gate_phase_gradient <- function(...) {
+  args = list(...)
+
+  if (length(args) == 0)
+    cirq$PhaseGradientGate
+  else
+    do.call(cirq$PhaseGradientGate, args)
+}
+
+
+#' @title Phased ISwap Pow Gate
+#' @family Unitary gates and operations
+#' @description Fractional ISWAP conjugated by Z rotations.
+#' @details PhasedISwapPowGate with phase_exponent p and exponent t is equivalent to
+#' the composition.
+#' @param ... parameters to pass.
+#' @return None
+#' @export
+gate_phased_is_wap_pow <- function(...) {
+  args = list(...)
+
+  if (length(args) == 0)
+    cirq$PhasedISwapPowGate
+  else
+    do.call(cirq$PhasedISwapPowGate, args)
+}
+
+
+
+#' @title Phased XZ Gate
+#' @family Unitary gates and operations
+#' @description A single qubit operation expressed as $Z^z Z^a X^x Z^{-a}$.
+#' @details The above expression is a matrix multiplication with time going to the left.
+#' In quantum circuit notation, this operation decomposes into this circuit:
+#' ───Z^(-a)──X^x──Z^a────Z^z───$
+#' The axis phase exponent (a) decides which axis in the XY plane to rotate
+#' around. The amount of rotation around that axis is decided by the x
+#' exponent (x). Then the z exponent (z) decides how much to phase the qubit.
+#' @param ... parameters to pass.
+#' @return None
+#' @export
+gate_phased_xz <- function(...) {
+  args = list(...)
+
+  if (length(args) == 0)
+    cirq$PhasedXZGate
+  else
+    do.call(cirq$PhasedXZGate, args)
+}
+
+
+#' @title Quantum Fourier Transform Gate
+#' @family Unitary gates and operations
+#' @description Switches from the computational basis to the frequency basis.
+#' @param ... parameters to pass.
+#' @return None
+#' @export
+gate_quantum_fourier_transform <- function(...) {
+  args = list(...)
+
+  if (length(args) == 0)
+    cirq$QuantumFourierTransformGate
+  else
+    do.call(cirq$QuantumFourierTransformGate, args)
+}
+
+
+#' @title Single Qubit Gate
+#' @family Unitary gates and operations
+#' @description A gate that must be applied to exactly one qubit.
+#' @param ... parameters to pass.
+#' @return None
+#' @export
+gate_single_qubit <- function(...) {
+  args = list(...)
+
+  if (length(args) == 0)
+    cirq$SingleQubitGate
+  else
+    do.call(cirq$SingleQubitGate, args)
+}
+
+
+
+#' @title Swap Pow Gate
+#' @family Unitary gates and operations
+#' @description The SWAP gate, possibly raised to a power. Exchanges qubits.
+#' @details SwapPowGate()**t = SwapPowGate(exponent=t) and acts on two qubits
+#' in the computational basis as the matrix.
+#' @param ... parameters to pass.
+#' @return None
+#' @export
+gate_swap_pow <- function(...) {
+  args = list(...)
+
+  if (length(args) == 0)
+    cirq$SwapPowGate
+  else
+    do.call(cirq$SwapPowGate, args)
+}
+
+
+
+
+
+
+
+
