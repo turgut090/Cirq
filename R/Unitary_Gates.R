@@ -919,9 +919,192 @@ gate_swap_pow <- function(...) {
 }
 
 
+#' @title Tagged Operation
+#' @family Unitary gates and operations
+#' @description A specific operation instance that has been
+#' identified with a set of Tags for special processing. This
+#' can be initialized with Using Operation.with_tags(tag) or
+#' by TaggedOperation(op, tag).
+#' @details Tags added can be of any type, but they should be Hashable in order
+#' to allow equality checking. If you wish to serialize operations into
+#' JSON, you should restrict yourself to only use objects that have a JSON
+#' serialization.
+#' @param ... parameters to pass.
+#' @return None
+#' @export
+gate_tagged_opertaion <- function(...) {
+  args = list(...)
+
+  if (length(args) == 0)
+    cirq$TaggedOperation
+  else
+    do.call(cirq$TaggedOperation, args)
+}
+
+
+
+#' @title Three Qubit Diagonal Gate
+#' @family Unitary gates and operations
+#' @description A gate given by a diagonal 8x8 matrix.
+#' @param ... parameters to pass.
+#' @return None
+#' @export
+gate_three_qubit_diagonal <- function(...) {
+  args = list(...)
+
+  if (length(args) == 0)
+    cirq$ThreeQubitDiagonalGate
+  else
+    do.call(cirq$ThreeQubitDiagonalGate, args)
+}
+
+
+#' @title Three Qubit Gate
+#' @family Unitary gates and operations
+#' @description A gate that must be applied to exactly three qubits.
+#' @param ... parameters to pass.
+#' @return None
+#' @export
+gate_three_qubit <- function(...) {
+  args = list(...)
+
+  if (length(args) == 0)
+    cirq$ThreeQubitDiagonalGate
+  else
+    do.call(cirq$ThreeQubitDiagonalGate, args)
+}
+
+
+#' @title Two Qubit Gate
+#' @family Unitary gates and operations
+#' @description A gate that must be applied to exactly two qubits.
+#' @param ... parameters to pass.
+#' @return None
+#' @export
+gate_three_qubit <- function(...) {
+  args = list(...)
+
+  if (length(args) == 0)
+    cirq$TwoQubitGate
+  else
+    do.call(cirq$TwoQubitGate, args)
+}
+
+#' @title Two Qubit Gate
+#' @family Unitary gates and operations
+#' @description A single-qubit idle gate that represents waiting.
+#'
+#' @details In non-noisy simulators, this gate is just an identity gate. But noisy
+#' simulators and noise models may insert more error for longer waits.
+#' @param ... parameters to pass.
+#' @return None
+#' @export
+gate_wait <- function(...) {
+  args = list(...)
+
+  if (length(args) == 0)
+    cirq$WaitGate
+  else
+    do.call(cirq$WaitGate, args)
+}
+
+
+#' @title X Pow Gate
+#' @family Unitary gates and operations
+#' @description A gate that rotates around the X axis of the Bloch sphere.
+#' @param ... parameters to pass.
+#' @return None
+#' @export
+gate_x_pow <- function(...) {
+  args = list(...)
+
+  if (length(args) == 0)
+    cirq$XPowGate
+  else
+    do.call(cirq$XPowGate, args)
+}
+
+
+#' @title XX Pow Gate
+#' @family Unitary gates and operations
+#' @description The X-parity gate, possibly raised to a power.
+#' @param ... parameters to pass.
+#' @return None
+#' @export
+gate_xx_pow <- function(...) {
+  args = list(...)
+
+  if (length(args) == 0)
+    cirq$XXPowGate
+  else
+    do.call(cirq$XXPowGate, args)
+}
+
+
+
+#' @title Y Pow Gate
+#' @family Unitary gates and operations
+#' @description A gate that rotates around the Y axis of the Bloch sphere.
+#' @param ... parameters to pass.
+#' @return None
+#' @export
+gate_y_pow <- function(...) {
+  args = list(...)
+
+  if (length(args) == 0)
+    cirq$YPowGate
+  else
+    do.call(cirq$YPowGate, args)
+}
+
+
+#' @title YY Pow Gate
+#' @family Unitary gates and operations
+#' @description The Y-parity gate, possibly raised to a power.
+#' @param ... parameters to pass.
+#' @return None
+#' @export
+gate_yy_pow <- function(...) {
+  args = list(...)
+
+  if (length(args) == 0)
+    cirq$XXPowGate
+  else
+    do.call(cirq$XXPowGate, args)
+}
 
 
 
 
+#' @title Z Pow Gate
+#' @family Unitary gates and operations
+#' @description A gate that rotates around the Z axis of the Bloch sphere.
+#' @param ... parameters to pass.
+#' @return None
+#' @export
+gate_z_pow <- function(...) {
+  args = list(...)
+
+  if (length(args) == 0)
+    cirq$ZPowGate
+  else
+    do.call(cirq$ZPowGate, args)
+}
+
+
+#' @title ZZ Pow Gate
+#' @family Unitary gates and operations
+#' @description The Z-parity gate, possibly raised to a power.
+#' @param ... parameters to pass.
+#' @return None
+#' @export
+gate_zz_pow <- function(...) {
+  args = list(...)
+
+  if (length(args) == 0)
+    cirq$ZZPowGate
+  else
+    do.call(cirq$ZZPowGate, args)
+}
 
 
