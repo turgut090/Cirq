@@ -29,6 +29,7 @@ Computes non-negative integer power of single-qubit Pauli combination.
 }
 \seealso{
 Other Pauli and Clifford groups: 
+\code{\link{clifford_single_qubit_gate}()},
 \code{\link{clifford_state}()},
 \code{\link{clifford_tableau}()},
 \code{\link{pauli_base_dense_string}()},
@@ -37,6 +38,11 @@ Other Pauli and Clifford groups:
 \code{\link{pauli_gate_like}()},
 \code{\link{pauli_interaction_gate}()},
 \code{\link{pauli_mutable_dense_string}()},
+\code{\link{pauli_string_gate_operation}()},
+\code{\link{pauli_string}()},
+\code{\link{pauli_sum_like}()},
+\code{\link{pauli_sum}()},
+\code{\link{pauli_transform}()},
 \code{\link{pauli}()}
 }
 \concept{Pauli and Clifford groups}
