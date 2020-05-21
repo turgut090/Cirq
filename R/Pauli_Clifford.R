@@ -264,7 +264,7 @@ pauli <- function(index, name) {
 #' @export
 pauli_interaction_gate <- function(pauli0, invert0, pauli1, invert1, exponent) {
 
-  if(missing(pauli0) & missing(pauli1) & missing(pauli1) & missing(invert1) & missing(exponent))
+  if(missing(pauli0) & missing(invert0) & missing(pauli1) & missing(invert1) & missing(exponent))
     cirq$PauliInteractionGate
   else
     cirq$PauliInteractionGate(
