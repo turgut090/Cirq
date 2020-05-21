@@ -6,6 +6,8 @@ Cirq is a Python library for writing, manipulating, and optimizing quantum circu
 
 > [TensorFlow](https://www.tensorflow.org/quantum/concepts): Quantum computing relies on properties of quantum mechanics to compute problems that would be out of reach for classical computers. A quantum computer uses qubits. Qubits are like regular bits in a computer, but with the added ability to be put into a superposition and share entanglement with one another.
 
+[![Actions Status](https://github.com/henry090/Cirq/workflows/R-CMD/badge.svg)](https://github.com/henry090/Cirq)
+
 ## Installation
 
 Requirements:
