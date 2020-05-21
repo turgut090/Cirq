@@ -278,6 +278,167 @@ pauli_interaction_gate <- function(pauli0, invert0, pauli1, invert1, exponent) {
 
 
 
+#' @title Pauli String
+#' @family Pauli and Clifford groups
+#' @description Initializes a new PauliString.
+#'
+#'
+#' @param ... parameters to pass:
+#' - `*contents` A value or values to convert into a pauli string.
+#' This can be a number, a pauli operation, a dictionary from qubit
+#' to pauli/identity gates, or collections thereof. If a list of values
+#' is given, they are each individually converted and then multiplied
+#' from left to right in order.
+#' - qubit_pauli_map Initial dictionary mapping qubits to pauli
+#' operations. Defaults to the empty dictionary. Note that, unlike
+#' dictionaries passed to contents, this dictionary must not contain any
+#' identity gate values. Further note that this argument specifies values
+#' that are logically before factors specified in contents; contents are
+#' right multiplied onto the values in this dictionary.
+#' - coefficient Initial scalar coefficient. Defaults to 1.
+#' @return a pauli string object.
+#' @export
+pauli_string <- function(...) {
+
+  args = list(...)
+
+  if(length(args)==0)
+    cirq$PauliString
+  else
+    do.call(cirq$PauliString, args)
+
+}
+
+
+
+
+
+#' @title Pauli String Gate Operation
+#' @family Pauli and Clifford groups
+#' @description An effect applied to a collection of qubits.
+#'
+#' @details The most common kind of Operation is a GateOperation, which separates its
+#' effect into a qubit-independent Gate and the qubits it should be applied to.
+#'
+#' @param pauli_string pauli_string object from function `pauli_string()`
+#' @return an operation with pauli string
+#' @export
+pauli_string_gate_operation <- function(pauli_string) {
+
+  if(missing(pauli_string))
+    cirq$PauliStringGateOperation
+  else
+    cirq$PauliStringGateOperation(
+      pauli_string = pauli_string
+    )
+
+}
+
+
+
+#' @title Pauli Sum
+#' @family Pauli and Clifford groups
+#' @description Represents operator defined by linear combination of PauliStrings.
+#'
+#' @details Since PauliStrings store their own coefficients, this class
+#' does not implement the LinearDict interface. Instead, you can
+#' add and subtract terms and then iterate over the resulting
+#' (simplified) expression.
+#'
+#' @param linear_dict Under the hood, this class is backed by a LinearDict with coefficient-less
+#' PauliStrings as keys. PauliStrings are reconstructed on-the-fly during
+#' iteration. PauliStrings are reconstructed on-the-fly during
+#' iteration.
+#' @return an operation with pauli sum
+#' @export
+pauli_sum <- function(linear_dict = NULL) {
+
+  if(missing(pauli_string))
+    cirq$PauliSum
+  else
+    cirq$PauliSum(
+      linear_dict = linear_dict
+    )
+}
+
+#' @title Pauli Sum Like
+#' @family Pauli and Clifford groups
+#' @description Any value that can be easily translated into a sum of Pauli products.
+#' @param ... parameters to pass.
+#'
+#' @return sum of pauli arguments.
+#' @export
+pauli_sum_like <- function(...) {
+
+  args = list(...)
+  if(length(args)==0)
+    cirq$PauliSumLike
+  else
+    do.call(cirq$PauliSumLike, args)
+}
+
+#' @title Pauli Transform
+#' @family Pauli and Clifford groups
+#' @description Any value that can be easily transofrmed into a sum of Pauli products.
+#' +X, -X, +Y, -Y, +Z, or -Z.
+#' @param ... parameters to pass.
+#'
+#' @return sum of pauli arguments.
+#' @export
+pauli_transform <- function(...) {
+
+  args = list(...)
+  if(length(args)==0)
+    cirq$Transform
+  else
+    do.call(cirq$Transform, args)
+}
+
+
+
+#' @title Single Qubit Clifford Gate
+#' @family Pauli and Clifford groups
+#' @description Any single qubit Clifford rotation.
+#' @param ... parameters to pass.
+#'
+#' @return rotated object.
+#' @export
+clifford_single_qubit_gate <- function(...) {
+
+  args = list(...)
+  if(length(args)==0)
+    cirq$SingleQubitCliffordGate
+  else
+    do.call(cirq$SingleQubitCliffordGate, args)
+}
+
+#' @title StabilizerStateChForm
+#'
+#' @description A representation of stabilizer states using the CH form.
+#'
+#' @details $|\\psi> = \\omega U_C U_H |s>$ This representation keeps track of overall phase.
+#' Reference: https://arxiv.org/abs/1808.00128
+#'
+#' @param num_qubits The number of qubits in the system
+#' @param initial_state If an int, the state is set to the computational
+#' @param ... other arguments to pass.
+#' @return initialized stabilizer states using the CH form.
+#' @export
+stabilizer_state_ch_form <- function(num_qubits, initial_state = 0, ...) {
+
+  args = list(
+    num_qubits = num_qubits,
+    initial_state = initial_state,
+    ...
+  )
+
+  do.call(cirq$StabilizerStateChForm, args)
+
+}
+
+
+
+
 
 
 
