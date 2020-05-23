@@ -132,18 +132,7 @@ circuit_dag <- function(can_reorder, incoming_graph_data = NULL,
 
 }
 
-#' @title Unconstrained device
-#'
-#' @description A device that allows everything, infinitely fast.
-#'
-#'
-#' @return list of ops.
-#' @export
-unconstrained_device <- function(){
 
-  cirq$UNCONSTRAINED_DEVICE()
-
-}
 
 #' @title Gate Operation
 #' @family Circuits
