@@ -44,6 +44,10 @@ Other Sampling, Simulations and Data collection:
 \code{\link{hog_score_xeb_fidelity_from_probabilities}()},
 \code{\link{measure_density_matrix}()},
 \code{\link{measure_state_vector}()},
-\code{\link{sample}()}
+\code{\link{sample_density_matrix}()},
+\code{\link{sample_state_vector}()},
+\code{\link{sample_sweep}()},
+\code{\link{sample}()},
+\code{\link{to_resolvers}()}
 }
 \concept{Sampling, Simulations and Data collection}

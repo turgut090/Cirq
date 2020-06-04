@@ -701,7 +701,7 @@ sample_sweep <- function(program, params) {
 
 
 #' @title To resolvers
-#'
+#' @family Sampling, Simulations and Data collection
 #' @description Convert a Sweepable to a list of ParamResolvers.
 #'
 #'
