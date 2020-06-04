@@ -10,11 +10,6 @@ Cirq is a Python library for writing, manipulating, and optimizing quantum circu
 
 ## Installation
 
-Requirements:
-
-- Python 3.6
-- TensorFlow 2.x
-
 The dev version (experimental):
 
 ```
