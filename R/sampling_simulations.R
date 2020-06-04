@@ -601,3 +601,122 @@ sample <- function(program, ...) {
 }
 
 
+
+#' @title Sample density matrix
+#' @family Sampling, Simulations and Data collection
+#' @description Samples repeatedly from measurements in the computational basis.
+#'
+#' @details Note that this does not modify the density_matrix.
+#'
+#' @param density_matrix The density matrix to be measured. This matrix is
+#' assumed to be positive semidefinite and trace one. The matrix is assumed
+#' to be of shape `(2 ** integer, 2 ** integer)` or (2, 2, ..., 2).
+#' @param indices Which qubits are measured. The density matrix rows and
+#' columns are assumed to be supplied in big endian order. That is the xth
+#' index of v, when expressed as a bitstring, has its largest values in the 0th index.
+#'
+#' @return Measurement results with TRUE corresponding to the ``|1⟩`` state.
+#' The outer list is for repetitions, and the inner corresponds to measurements
+#' ordered by the supplied qubits. These lists are wrapped as an numpy ndarray.
+#'
+#' @section Raises:
+#' ValueError: ``repetitions`` is less than one or size of ``matrix`` is not a
+#' power of 2. IndexError: An index from ``indices`` is out of range, given the
+#' number of qubits corresponding to the density matrix.
+#'
+#' @export
+sample_density_matrix <- function(density_matrix, indices) {
+
+  args <- list(
+    density_matrix = density_matrix,
+    indices = indices
+  )
+
+  do.call(cirq$sample_density_matrix, args)
+
+}
+
+
+
+#' @title Sample state vector
+#' @family Sampling, Simulations and Data collection
+#' @description Samples repeatedly from measurements in the computational basis.
+#'
+#' @details Note that this does not modify the passed in state.
+#'
+#' @param state The multi-qubit wavefunction to be sampled. This is an array of
+#' 2 to the power of the number of qubit complex numbers, and so state must be of
+#' size ``2**integer``. The state can be a vector of size ``2**integer`` or a
+#' tensor of shape ``(2, 2, ..., 2)``.
+#' @param indices Which qubits are measured. The state is assumed to be supplied
+#' in big endian order. That is the xth index of v, when expressed as a bitstring,
+#' has its largest values in the 0th index.
+#'
+#' @return Measurement results with TRUE corresponding to the ``|1⟩`` state. The outer
+#' list is for repetitions, and the inner corresponds to measurements ordered by the
+#' supplied qubits. These lists are wrapped as an numpy ndarray.
+#'
+#' @section Raises:
+#' ValueError: ``repetitions`` is less than one or size of ``state`` is not
+#' a power of 2. IndexError: An index from ``indices`` is out of range, given the
+#' number of qubits corresponding to the state.
+#'
+#' @export
+sample_state_vector <- function(state, indices) {
+
+  args <- list(
+    state = state,
+    indices = indices
+  )
+
+  do.call(cirq$sample_state_vector, args)
+
+}
+
+
+
+#' @title Sample sweep
+#' @family Sampling, Simulations and Data collection
+#' @description Runs the supplied Circuit, mimicking quantum hardware.
+#'
+#' @details In contrast to run, this allows for sweeping over different parameter
+#' values.
+#'
+#' @param program The circuit to simulate.
+#' @param params Parameters to run with the program.
+#'
+#' @return TrialResult list for this run; one for each possible parameter resolver.
+#'
+#' @export
+sample_sweep <- function(program, params) {
+
+  args<- list(
+    program = program,
+    params = params
+  )
+
+  do.call(cirq$sample_sweep, args)
+
+}
+
+
+#' @title To resolvers
+#'
+#' @description Convert a Sweepable to a list of ParamResolvers.
+#'
+#'
+#' @param sweepable sweepable parameter
+#'
+#' @export
+to_resolvers <- function(sweepable) {
+
+  cirq$to_resolvers(
+    sweepable = sweepable
+  )
+
+}
+
+
+
+
+
