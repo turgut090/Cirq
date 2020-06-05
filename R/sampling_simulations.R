@@ -706,7 +706,7 @@ sample_sweep <- function(program, params) {
 #'
 #'
 #' @param sweepable sweepable parameter
-#'
+#' @return None
 #' @export
 to_resolvers <- function(sweepable) {
 
@@ -716,6 +716,124 @@ to_resolvers <- function(sweepable) {
 
 }
 
+
+#' @title To sweep
+#' @family Sampling, Simulations and Data collection
+#' @description Converts the argument into a ``cirq.Sweep``.
+#'
+#'
+#' @param sweep_or_resolver_list The object to try to turn into a
+#' ```cirq.Sweep``` . A ``cirq.Sweep``, a single ``cirq.ParamResolver``,
+#' or a list of ``cirq.ParamResolver`` s.
+#'
+#' @return A sweep equal to or containing the argument.
+#'
+#' @export
+to_sweep <- function(sweep_or_resolver_list) {
+
+  cirq$to_sweep(
+    sweep_or_resolver_list = sweep_or_resolver_list
+  )
+
+}
+
+
+#' @title Validate mixture
+#' @family Sampling, Simulations and Data collection
+#' @description Validates that the mixture's list are valid probabilities.
+#'
+#'
+#' @param supports_mixture supports_mixture
+#' @return None
+#' @export
+validate_mixture <- function(supports_mixture) {
+
+  cirq$validate_mixture(
+    supports_mixture = supports_mixture
+  )
+
+}
+
+
+
+
+
+#' @title Validate probability
+#'
+#' @description Validates that a probability is between 0 and 1 inclusively.
+#'
+#'
+#' @param p The value to validate.
+#' @param p_str What to call the probability in error messages.
+#'
+#' @return The probability p if the probability if valid.
+#'
+#' @section Raises:
+#' ValueError if the probability is invalid.
+#'
+#' @export
+validate_probability <- function(p, p_str) {
+
+  cirq$validate_probability(
+    p = p,
+    p_str = p_str
+  )
+
+}
+
+
+
+
+
+#' @title Xeb fidelity
+#'
+#' @description Estimates XEB fidelity from one circuit using user-supplied estimator.
+#'
+#' @details Fidelity quantifies the similarity of two quantum states. Here, we estimate
+#' the fidelity between the theoretically predicted output state of circuit and
+#' the state producted in its experimental realization. Note that we don't know
+#' the latter state. Nevertheless, we can estimate the fidelity between the two
+#' states from the knowledge of the bitstrings observed in the experiment.
+#' In order to make the estimate more robust one should average the estimates
+#' over many random circuits. The API supports per-circuit fidelity estimation
+#' to enable users to examine the properties of estimate distribution over
+#' many circuits. See https://arxiv.org/abs/1608.00263 for more details.
+#'
+#' @param circuit Random quantum circuit which has been executed on quantum processor under test.
+#' @param bitstrings Results of terminal all-qubit measurements performed after
+#' each circuit execution as integer array where each integer is formed from
+#' measured qubit values according to `qubit_order` from most to least significant
+#' qubit, i.e. in the order consistent with `cirq.final_wavefunction`.
+#' @param qubit_order Qubit order used to construct bitstrings enumerating qubits
+#' starting with the most sigificant qubit.
+#' @param amplitudes Optional mapping from bitstring to output amplitude. If provided,
+#' simulation is skipped. Useful for large circuits when an offline simulation
+#' had already been peformed.
+#' @param estimator Fidelity estimator to use, see above. Defaults to the linear
+#' XEB fidelity estimator. Returns: Estimate of fidelity associated with an experimental
+#' realization of circuit which yielded measurements in bitstrings. Raises:
+#'
+#' @return Estimate of fidelity associated with an experimental realization of
+#' circuit which yielded measurements in bitstrings. Raises: ValueError: Circuit
+#' is inconsistent with qubit order or one of the bitstrings is inconsistent with the number of qubits.
+#'
+#' @section Raises:
+#' ValueError: Circuit is inconsistent with
+#' qubit order or one of the bitstrings is inconsistent with the number of qubits.
+#'
+#' @export
+xeb_fidelity <- function(circuit, bitstrings, qubit_order, amplitudes = NULL,
+                         estimator) {
+
+  cirq$xeb_fidelity(
+    circuit = circuit,
+    bitstrings = bitstrings,
+    qubit_order = qubit_order,
+    amplitudes = amplitudes,
+    estimator = estimator
+  )
+
+}
 
 
 

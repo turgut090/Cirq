@@ -47,6 +47,8 @@ Other Sampling, Simulations and Data collection:
 \code{\link{sample_state_vector}()},
 \code{\link{sample_sweep}()},
 \code{\link{sample}()},
-\code{\link{to_resolvers}()}
+\code{\link{to_resolvers}()},
+\code{\link{to_sweep}()},
+\code{\link{validate_mixture}()}
 }
 \concept{Sampling, Simulations and Data collection}
