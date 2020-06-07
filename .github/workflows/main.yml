@@ -36,6 +36,8 @@ jobs:
       - uses: r-lib/actions/setup-r@master
 
       - uses: r-lib/actions/setup-pandoc@master
+        with:
+          r-version: '3.6.3'
 
       - name: Install deps
         run: |
